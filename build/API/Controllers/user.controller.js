@@ -14,14 +14,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.updateUser = exports.signinUser = exports.registerUser = void 0;
 const user_module_1 = __importDefault(require("../Models/user.module"));
-const bcrypt_1 = __importDefault(require("bcrypt"));
+// import bcrypt from "bcrypt";
+// import bcrypt from "bcryptjs"
 const utils_1 = require("../../res/utils");
 const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userName, userPass, email } = req.body;
-    const hashPass = yield bcrypt_1.default.hash(userPass, 10);
+    // const hashPass = await bcrypt.hash(userPass, 10);
     user_module_1.default.create({
         userName: userName,
-        userPass: hashPass,
+        // userPass: hashPass,
+        userPass: userPass,
         email: email,
     })
         .then((Cres) => {
@@ -42,7 +44,8 @@ const signinUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
                 errorMessage: "UserName or Password is incorrect",
             });
         }
-        const isPasswordValid = yield bcrypt_1.default.compare(userPass, user.userPass);
+        // const isPasswordValid = await bcrypt.compare(userPass, user.userPass);
+        const isPasswordValid = user.userPass === userPass;
         if (!isPasswordValid) {
             return res.status(401).json({
                 auth: false,
@@ -61,7 +64,7 @@ exports.signinUser = signinUser;
 const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { userID, updatedData } = req.body;
-        const hashTheNewUpdatedPass = yield bcrypt_1.default.hash(updatedData.userPass, 10);
+        // const hashTheNewUpdatedPass = await bcrypt.hash(updatedData.userPass, 10);
         let user = yield (0, utils_1.getUserByID)(userID);
         if (!user) {
             return res
@@ -69,7 +72,8 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
                 .json({ error: true, errorMessage: "user not found" });
         }
         user.userName = updatedData.userName || user.userName;
-        user.userPass = hashTheNewUpdatedPass || user.userPass;
+        // user.userPass = hashTheNewUpdatedPass || user.userPass;
+        user.userPass = updatedData.userPass || user.userPass;
         user.email = updatedData.email || user.email;
         user
             .save()
