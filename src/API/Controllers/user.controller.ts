@@ -11,7 +11,6 @@ const registerUser = async (req: Request, res: Response) => {
   USER_MODEL.create({
     userName: userName,
     userPass: hashPass,
-    // userPass: userPass,
     email: email,
   })
     .then((Cres) => {
@@ -45,7 +44,7 @@ const signinUser = async (req: any, res: any) => {
         test: user,
       });
     }
-    res.status(200).json({ auth: true, user });
+    res.status(200).json(user);
   } catch (error) {
     console.error("Error logging in user: ");
     res.status(500).json({ error: "Internal Server Error" });
