@@ -23,7 +23,7 @@ mongoose.connection.on("error", () => {
   console.error("MongoDB connection error");
 });
 
-app.use("../public", express.static(path.join(__dirname, "public")));
+app.use("/public", express.static(path.join(__dirname, "../public")));
 const jsonFilePath = path.join(__dirname, "../db/data.json");
 
 app.get("/products", (req: any, res: any) => {
