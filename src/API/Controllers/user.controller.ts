@@ -1,17 +1,17 @@
 import USER_MODEL from "../Models/user.module";
 import { Request, Response } from "express";
 // import bcrypt from "bcrypt";
-// import bcrypt from "bcryptjs"
+import bcrypt from "bcryptjs";
 import { getUserByID } from "../../res/utils";
 
 const registerUser = async (req: Request, res: Response) => {
   const { userName, userPass, email } = req.body;
 
-  // const hashPass = await bcrypt.hash(userPass, 10);
+  const hashPass = await bcrypt.hash(userPass, 10);
   USER_MODEL.create({
     userName: userName,
-    // userPass: hashPass,
-    userPass: userPass,
+    userPass: hashPass,
+    // userPass: userPass,
     email: email,
   })
     .then((Cres) => {
@@ -35,8 +35,8 @@ const signinUser = async (req: any, res: any) => {
       });
     }
 
-    // const isPasswordValid = await bcrypt.compare(userPass, user.userPass);
-    const isPasswordValid = user.userPass === userPass
+    const isPasswordValid = await bcrypt.compare(userPass, user.userPass);
+    // const isPasswordValid = user.userPass === userPass
 
     if (!isPasswordValid) {
       return res.status(401).json({
@@ -56,7 +56,7 @@ const updateUser = async (req: any, res: any) => {
   try {
     const { userID, updatedData } = req.body;
 
-    // const hashTheNewUpdatedPass = await bcrypt.hash(updatedData.userPass, 10);
+    const hashTheNewUpdatedPass = await bcrypt.hash(updatedData.userPass, 10);
 
     let user = await getUserByID(userID);
 
@@ -66,8 +66,8 @@ const updateUser = async (req: any, res: any) => {
         .json({ error: true, errorMessage: "user not found" });
     }
     user.userName = updatedData.userName || user.userName;
-    // user.userPass = hashTheNewUpdatedPass || user.userPass;
-    user.userPass = updatedData.userPass || user.userPass;
+    user.userPass = hashTheNewUpdatedPass || user.userPass;
+    // user.userPass = updatedData.userPass || user.userPass;
     user.email = updatedData.email || user.email;
     user
       .save()
