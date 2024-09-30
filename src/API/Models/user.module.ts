@@ -1,5 +1,24 @@
 import { model, Schema } from "mongoose";
 
+const userItemsSchema = new Schema({
+  id: Number,
+  category: String,
+  name: String,
+  description: String,
+  image: String,
+  detailsImage: String,
+  prices: [
+    {
+      size: String,
+      price: Number,
+      quantity: Number,
+    },
+  ],
+  ingredients: String,
+  average_rating: Number,
+  favorite: Boolean,
+});
+
 const userSchema = new Schema({
   userName: {
     type: String,
@@ -17,6 +36,14 @@ const userSchema = new Schema({
   userMemberDate: {
     type: Date,
     default: new Date(),
+  },
+  userCart: {
+    type: [userItemsSchema],
+    default: [],
+  },
+  userFavorite: {
+    type: [userItemsSchema],
+    default: [],
   },
 });
 
