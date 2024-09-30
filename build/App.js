@@ -9,6 +9,7 @@ const Routes_1 = __importDefault(require("./API/Routes/Routes"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const cors_1 = __importDefault(require("cors"));
+require("../db/data.json");
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
 app.use(express_1.default.json());
@@ -22,8 +23,8 @@ mongoose_1.default.connection.on("connected", () => {
 mongoose_1.default.connection.on("error", () => {
     console.error("MongoDB connection error");
 });
-app.use("/public", express_1.default.static(path_1.default.join(__dirname, "public")));
-const jsonFilePath = path_1.default.join(__dirname, "./res/data.json");
+app.use("../public", express_1.default.static(path_1.default.join(__dirname, "public")));
+const jsonFilePath = path_1.default.join(__dirname, "../db/data.json");
 app.get("/products", (req, res) => {
     fs_1.default.readFile(jsonFilePath, "utf8", (err, data) => {
         if (err) {

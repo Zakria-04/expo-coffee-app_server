@@ -4,6 +4,7 @@ import Routes from "./API/Routes/Routes";
 import fs from "fs";
 import path from "path";
 import cors from "cors";
+import "../db/data.json"
 
 const app: Express = express();
 const router = express.Router();
@@ -22,8 +23,8 @@ mongoose.connection.on("error", () => {
   console.error("MongoDB connection error");
 });
 
-app.use("/public", express.static(path.join(__dirname, "public")));
-const jsonFilePath = path.join(__dirname, "./res/data.json");
+app.use("../public", express.static(path.join(__dirname, "public")));
+const jsonFilePath = path.join(__dirname, "../db/data.json");
 
 app.get("/products", (req: any, res: any) => {
   fs.readFile(jsonFilePath, "utf8", (err, data) => {
