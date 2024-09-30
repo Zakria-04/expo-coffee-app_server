@@ -1,6 +1,7 @@
 import USER_MODEL from "../Models/user.module";
 import { Request, Response } from "express";
-import bcrypt from "bcrypt";
+// import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs"
 import { getUserByID } from "../../res/utils";
 
 const registerUser = async (req: Request, res: Response) => {
