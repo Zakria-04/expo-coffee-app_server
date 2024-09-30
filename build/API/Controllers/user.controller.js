@@ -23,7 +23,6 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     user_module_1.default.create({
         userName: userName,
         userPass: hashPass,
-        // userPass: userPass,
         email: email,
     })
         .then((Cres) => {
@@ -53,7 +52,7 @@ const signinUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
                 test: user,
             });
         }
-        res.status(200).json({ auth: true, user });
+        res.status(200).json(user);
     }
     catch (error) {
         console.error("Error logging in user: ");
