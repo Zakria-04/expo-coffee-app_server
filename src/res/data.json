@@ -1,0 +1,293 @@
+{
+  "baseURL": "http://localhost:3000/public/images/",
+  "products": [
+    {
+      "id": 1,
+      "category": "Americano",
+      "name": "Americano",
+      "description": "description about the coffee/bean",
+      "image": "americano_1.png",
+      "detailsImage": "americano_details_1.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 2,
+      "category": "Americano",
+      "name": "Americano",
+      "description": "description about the coffee/bean",
+      "image": "americano_2.png",
+      "detailsImage": "americano_details_2.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "category": "Americano",
+      "name": "Americano",
+      "description": "description about the coffee/bean",
+      "image": "americano_3.png",
+      "detailsImage": "americano_details_3.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 4,
+      "category": "black coffee",
+      "name": "black coffee",
+      "description": "description about the coffee/bean",
+      "image": "black_coffee_1.png",
+      "detailsImage": "black_coffee_details_1.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 5,
+      "category": "black coffee",
+      "name": "black coffee",
+      "description": "description about the coffee/bean",
+      "image": "black_coffee_2.png",
+      "detailsImage": "black_coffee_details_2.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 6,
+      "category": "black coffee",
+      "name": "black coffee",
+      "description": "description about the coffee/bean",
+      "image": "black_coffee_3.png",
+      "detailsImage": "black_coffee_details_3.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 7,
+      "category": "cappuccino",
+      "name": "cappuccino",
+      "description": "description about the coffee/bean",
+      "image": "cappuccino_1.png",
+      "detailsImage": "cappuccino_details_1.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 8,
+      "category": "cappuccino",
+      "name": "cappuccino",
+      "description": "description about the coffee/bean",
+      "image": "cappuccino_2.png",
+      "detailsImage": "cappuccino_details_2.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 9,
+      "category": "cappuccino",
+      "name": "cappuccino",
+      "description": "description about the coffee/bean",
+      "image": "cappuccino_3.png",
+      "detailsImage": "cappuccino_details_3.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 10,
+      "category": "espresso",
+      "name": "espresso",
+      "description": "description about the coffee/bean",
+      "image": "espresso_1.png",
+      "detailsImage": "espresso_details_1.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 11,
+      "category": "espresso",
+      "name": "espresso",
+      "description": "description about the coffee/bean",
+      "image": "espresso_2.png",
+      "detailsImage": "espresso_details_2.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 12,
+      "category": "espresso",
+      "name": "espresso",
+      "description": "description about the coffee/bean",
+      "image": "espresso_3.png",
+      "detailsImage": "espresso_details_3.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 13,
+      "category": "latte",
+      "name": "latte",
+      "description": "description about the coffee/bean",
+      "image": "latte_1.png",
+      "detailsImage": "latte_details_1.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 14,
+      "category": "latte",
+      "name": "latte",
+      "description": "description about the coffee/bean",
+      "image": "latte_2.png",
+      "detailsImage": "latte_details_2.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 15,
+      "category": "latte",
+      "name": "latte",
+      "description": "description about the coffee/bean",
+      "image": "latte_3.png",
+      "detailsImage": "latte_details_3.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 16,
+      "category": "macchiato",
+      "name": "macchiato",
+      "description": "description about the coffee/bean",
+      "image": "macchiato_1.png",
+      "detailsImage": "macchiato_details_1.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 17,
+      "category": "macchiato",
+      "name": "macchiato",
+      "description": "description about the coffee/bean",
+      "image": "macchiato_2.png",
+      "detailsImage": "macchiato_details_2.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    },
+    {
+      "id": 18,
+      "category": "macchiato",
+      "name": "macchiato",
+      "description": "description about the coffee/bean",
+      "image": "macchiato_3.png",
+      "detailsImage": "macchiato_details_3.png",
+      "prices": [
+        { "size": "S", "price": 2.99, "quantity": 0 },
+        { "size": "M", "price": 3.99, "quantity": 0 },
+        { "size": "L", "price": 5.99, "quantity": 0 }
+      ],
+      "ingredients": "Milk",
+      "average_rating": 4.6,
+      "favorite": false
+    }
+  ]
+}

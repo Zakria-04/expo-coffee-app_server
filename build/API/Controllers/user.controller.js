@@ -12,10 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registerUser = exports.createNewUser = void 0;
+exports.deleteUser = exports.updateUser = exports.signinUser = exports.registerUser = void 0;
 const user_module_1 = __importDefault(require("../Models/user.module"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
-const createNewUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const utils_1 = require("../../res/utils");
+const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userName, userPass, email } = req.body;
     const hashPass = yield bcrypt_1.default.hash(userPass, 10);
     user_module_1.default.create({
@@ -30,31 +31,75 @@ const createNewUser = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(500).json({ error: true, errorMessage: error.message });
     });
 });
-exports.createNewUser = createNewUser;
-const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.registerUser = registerUser;
+const signinUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { userName, userPass } = req.body;
         const user = yield user_module_1.default.findOne({ userName });
         if (!user) {
             return res.status(401).json({
                 auth: false,
-                errorMessage: "UserName or Password is incorrect1",
+                errorMessage: "UserName or Password is incorrect",
             });
         }
         const isPasswordValid = yield bcrypt_1.default.compare(userPass, user.userPass);
-        console.log(isPasswordValid);
-        // if (!isPasswordValid) {
-        //   return res.status(401).json({
-        //     auth: false,
-        //     errorMessage: "UserName or Password is incorrect2",
-        //     test: user
-        //   });
-        // }
-        // res.status(200).json({ auth: true, user });
+        if (!isPasswordValid) {
+            return res.status(401).json({
+                auth: false,
+                errorMessage: "UserName or Password is incorrect",
+                test: user,
+            });
+        }
+        res.status(200).json({ auth: true, user });
     }
     catch (error) {
         console.error("Error logging in user: ");
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
-exports.registerUser = registerUser;
+exports.signinUser = signinUser;
+const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userID, updatedData } = req.body;
+        const hashTheNewUpdatedPass = yield bcrypt_1.default.hash(updatedData.userPass, 10);
+        let user = yield (0, utils_1.getUserByID)(userID);
+        if (!user) {
+            return res
+                .status(404)
+                .json({ error: true, errorMessage: "user not found" });
+        }
+        user.userName = updatedData.userName || user.userName;
+        user.userPass = hashTheNewUpdatedPass || user.userPass;
+        user.email = updatedData.email || user.email;
+        user
+            .save()
+            .then((updatedRes) => res.status(200).json({ user: updatedRes }))
+            .catch((e) => res.status(500).json({ error: true, errorMessage: e.message }));
+    }
+    catch (error) {
+        console.error({ error: true, errorMessage: error });
+    }
+});
+exports.updateUser = updateUser;
+const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userID } = req.body;
+        let checkUserByID = yield (0, utils_1.getUserByID)(userID);
+        if (checkUserByID) {
+            user_module_1.default.findByIdAndDelete(userID)
+                .then(() => {
+                res.status(200).send("user has been deleted successfully");
+            })
+                .catch((err) => {
+                res.status(500).json({ err: true, errorMessage: err.message });
+            });
+        }
+        else {
+            res.status(500).json({ error: "user is not available" });
+        }
+    }
+    catch (err) {
+        res.status(500).json({ err: err });
+    }
+});
+exports.deleteUser = deleteUser;

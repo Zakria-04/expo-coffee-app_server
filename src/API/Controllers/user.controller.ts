@@ -7,7 +7,6 @@ const registerUser = async (req: Request, res: Response) => {
   const { userName, userPass, email } = req.body;
 
   const hashPass = await bcrypt.hash(userPass, 10);
-
   USER_MODEL.create({
     userName: userName,
     userPass: hashPass,
@@ -77,4 +76,25 @@ const updateUser = async (req: any, res: any) => {
   }
 };
 
-export { registerUser, signinUser, updateUser };
+const deleteUser = async (req: any, res: any) => {
+  try {
+    const { userID } = req.body;
+    let checkUserByID = await getUserByID(userID);
+
+    if (checkUserByID) {
+      USER_MODEL.findByIdAndDelete(userID)
+        .then(() => {
+          res.status(200).send("user has been deleted successfully");
+        })
+        .catch((err) => {
+          res.status(500).json({ err: true, errorMessage: err.message });
+        });
+    } else {
+      res.status(500).json({ error: "user is not available" });
+    }
+  } catch (err) {
+    res.status(500).json({ err: err });
+  }
+};
+
+export { registerUser, signinUser, updateUser, deleteUser };
