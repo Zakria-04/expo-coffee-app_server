@@ -1,5 +1,5 @@
 {
-    "baseURL": "https://expo-coffee-app-server.onrender.com/",
+    "baseURL": "https://expo-coffee-app-server.onrender.com/public/images/",
     "products": [
       {
         "id": 1,
