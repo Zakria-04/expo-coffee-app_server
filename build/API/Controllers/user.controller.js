@@ -63,7 +63,7 @@ exports.signinUser = signinUser;
 const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { userID, updatedData } = req.body;
-        const hashTheNewUpdatedPass = yield bcryptjs_1.default.hash(updatedData.userPass, 10);
+        // const hashTheNewUpdatedPass = await bcrypt.hash(updatedData.userPass, 10);
         let user = yield (0, utils_1.getUserByID)(userID);
         if (!user) {
             return res
@@ -71,9 +71,9 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
                 .json({ error: true, errorMessage: "user not found" });
         }
         user.userName = updatedData.userName || user.userName;
-        user.userPass = hashTheNewUpdatedPass || user.userPass;
-        // user.userPass = updatedData.userPass || user.userPass;
+        // user.userPass = hashTheNewUpdatedPass || user.userPass;
         user.email = updatedData.email || user.email;
+        user.userCart = updatedData.userCart || user.userCart;
         user
             .save()
             .then((updatedRes) => res.status(200).json({ user: updatedRes }))

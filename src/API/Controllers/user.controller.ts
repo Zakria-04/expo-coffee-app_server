@@ -55,7 +55,7 @@ const updateUser = async (req: any, res: any) => {
   try {
     const { userID, updatedData } = req.body;
 
-    const hashTheNewUpdatedPass = await bcrypt.hash(updatedData.userPass, 10);
+    // const hashTheNewUpdatedPass = await bcrypt.hash(updatedData.userPass, 10);
 
     let user = await getUserByID(userID);
 
@@ -65,9 +65,9 @@ const updateUser = async (req: any, res: any) => {
         .json({ error: true, errorMessage: "user not found" });
     }
     user.userName = updatedData.userName || user.userName;
-    user.userPass = hashTheNewUpdatedPass || user.userPass;
-    // user.userPass = updatedData.userPass || user.userPass;
+    // user.userPass = hashTheNewUpdatedPass || user.userPass;
     user.email = updatedData.email || user.email;
+    user.userCart = updatedData.userCart || user.userCart;
     user
       .save()
       .then((updatedRes) => res.status(200).json({ user: updatedRes }))
