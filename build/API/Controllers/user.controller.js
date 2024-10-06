@@ -74,7 +74,9 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         // user.userPass = hashTheNewUpdatedPass || user.userPass;
         user.email = updatedData.email || user.email;
         user.userCart = updatedData.userCart || user.userCart;
-        user.userFavorite = updatedData.userFavorite || user.userFavorite;
+        (user.userFavorite = updatedData.userFavorite || user.userFavorite),
+            (user.userOrderHistory =
+                updatedData.userOrderHistory || user.userOrderHistory);
         user
             .save()
             .then((updatedRes) => res.status(200).json({ user: updatedRes }))

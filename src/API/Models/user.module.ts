@@ -45,6 +45,10 @@ const userSchema = new Schema({
     type: [userItemsSchema],
     default: [],
   },
+  userOrderHistory: {
+    type: [userItemsSchema],
+    default: [],
+  },
 });
 
 const USER_MODEL = model("expo_coffee_app_users", userSchema);

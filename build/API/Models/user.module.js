@@ -45,6 +45,10 @@ const userSchema = new mongoose_1.Schema({
         type: [userItemsSchema],
         default: [],
     },
+    userOrderHistory: {
+        type: [userItemsSchema],
+        default: [],
+    },
 });
 const USER_MODEL = (0, mongoose_1.model)("expo_coffee_app_users", userSchema);
 exports.default = USER_MODEL;
