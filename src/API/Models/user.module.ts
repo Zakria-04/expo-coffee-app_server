@@ -20,7 +20,7 @@ const userItemsSchema = new Schema({
 });
 
 const orderHistorySchema = new Schema({
-  date: Date,
+  date: String,
   ordersItem: [userItemsSchema],
 });
 

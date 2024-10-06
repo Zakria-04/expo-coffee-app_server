@@ -20,7 +20,7 @@ const userItemsSchema = new mongoose_1.Schema({
     favorite: Boolean,
 });
 const orderHistorySchema = new mongoose_1.Schema({
-    date: Date,
+    date: String,
     ordersItem: [userItemsSchema],
 });
 const userSchema = new mongoose_1.Schema({
