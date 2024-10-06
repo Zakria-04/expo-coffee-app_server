@@ -19,6 +19,10 @@ const userItemsSchema = new mongoose_1.Schema({
     average_rating: Number,
     favorite: Boolean,
 });
+const orderHistorySchema = new mongoose_1.Schema({
+    date: Date,
+    ordersItem: [userItemsSchema],
+});
 const userSchema = new mongoose_1.Schema({
     userName: {
         type: String,
@@ -46,7 +50,7 @@ const userSchema = new mongoose_1.Schema({
         default: [],
     },
     userOrderHistory: {
-        type: [userItemsSchema],
+        type: [orderHistorySchema],
         default: [],
     },
 });

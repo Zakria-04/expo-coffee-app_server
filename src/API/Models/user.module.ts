@@ -19,6 +19,11 @@ const userItemsSchema = new Schema({
   favorite: Boolean,
 });
 
+const orderHistorySchema = new Schema({
+  date: Date,
+  ordersItem: [userItemsSchema],
+});
+
 const userSchema = new Schema({
   userName: {
     type: String,
@@ -46,7 +51,7 @@ const userSchema = new Schema({
     default: [],
   },
   userOrderHistory: {
-    type: [userItemsSchema],
+    type: [orderHistorySchema],
     default: [],
   },
 });
